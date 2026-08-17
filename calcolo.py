@@ -151,7 +151,8 @@ def simula_proiezione(
         if anno > 0:
             valore_immobile_corrente *= 1 + rivalutazione_immobile
             cassa_cumulata_immobile += flusso_cassa_netto_annuo
-            capitale_btp *= 1 + rendimento_btp_netto
+            bollo_btp_annuo = capitale_btp * 0.002
+            capitale_btp += valore_iniziale * rendimento_btp_netto - bollo_btp_annuo
         serie.append(PuntoProiezione(
             anno=anno,
             patrimonio_immobile=round(valore_immobile_corrente + cassa_cumulata_immobile),
